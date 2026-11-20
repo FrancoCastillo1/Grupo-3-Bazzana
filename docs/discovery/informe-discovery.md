@@ -2,7 +2,13 @@
 ## Sistemas de gestión de turnos y agenda para consultorios odontológicos en Argentina
 
 **Materia**: Desarrollo de Software, Trabajo Global
-**Integrantes**: (completar: nombre y rol de cada integrante)
+**Integrantes** (Grupo 3):
+- Bazzana, Santiago (líder del proyecto: fundación, Discovery y change OPSX evaluado)
+- De Giuseppe, Joaquín
+- Romero, Franco
+- Castillo, Franco
+- Rocamora, Adriano
+- Guiretti, Valentino
 **Fecha**: 2026-11-20
 **Producto en estudio**: sistema de gestión de turnos y agenda de pacientes para consultorios odontológicos, mercado argentino.
 
