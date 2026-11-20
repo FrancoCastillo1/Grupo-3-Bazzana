@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "visual-design",
+  "step": "roadmap",
   "owner": "active-orchestrator",
   "visual_design": {
     "created_by": "design-system",
@@ -145,5 +145,9 @@
       "¿El equipo de 6 personas es compatible con la consigna?",
       "No evidenciados: precios (Bilog, Dentalink, Órbita, ClinIA, Curve, Dentidesk), prevención de solapamientos en la mayoría, normativa declarada (Bilog, Órbita, Dentiqa), duración variable (Bilog, Oclusar, Dentalink), Doctoralia AR y Reservo sin evidencia legible"
     ]
+  },
+  "roadmap": {
+    "created_by": "roadmap-generator",
+    "changes_file": "CHANGES.md"
   }
 }
