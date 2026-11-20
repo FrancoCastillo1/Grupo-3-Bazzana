@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "roadmap",
+  "step": "registry",
   "owner": "active-orchestrator",
   "visual_design": {
     "created_by": "design-system",
@@ -16,7 +16,16 @@
       "system_type": "web_app",
       "domain": "salud / odontología: gestión de turnos y agenda",
       "scale": "team",
-      "stack": ["Java 17", "Spring Boot 3", "Maven Wrapper", "Spring Data JPA", "H2 (en memoria)", "Thymeleaf", "Spring Security", "JUnit 5"],
+      "stack": [
+        "Java 17",
+        "Spring Boot 3",
+        "Maven Wrapper",
+        "Spring Data JPA",
+        "H2 (en memoria)",
+        "Thymeleaf",
+        "Spring Security",
+        "JUnit 5"
+      ],
       "needs_infra": false
     },
     "files": [
@@ -59,25 +68,82 @@
       "https://www.curvedental.com/"
     ],
     "competitors": [
-      { "name": "Bilog", "notes_file": "docs/discovery/sources/fichas-competidores.md#1-bilog" },
-      { "name": "Dentalink", "notes_file": "docs/discovery/sources/fichas-competidores.md#2-dentalink-sitio-argentina" },
-      { "name": "Oclusar", "notes_file": "docs/discovery/sources/fichas-competidores.md#3-oclusar" },
-      { "name": "OdontoGRAMA", "notes_file": "docs/discovery/sources/fichas-competidores.md#4-odontograma" },
-      { "name": "Odonto.ar", "notes_file": "docs/discovery/sources/fichas-competidores.md#5-odontoar" },
-      { "name": "Dentia", "notes_file": "docs/discovery/sources/fichas-competidores.md#6-dentia" },
-      { "name": "Órbita", "notes_file": "docs/discovery/sources/fichas-competidores.md#7-órbita-hiorbita" },
-      { "name": "OdontoClinIA", "notes_file": "docs/discovery/sources/fichas-competidores.md#8-odontoclinia-clinia" },
-      { "name": "AgendaPro", "notes_file": "docs/discovery/sources/fichas-competidores.md#9-agendapro" },
-      { "name": "Dentidesk", "notes_file": "docs/discovery/sources/fichas-competidores.md#10-dentidesk" },
-      { "name": "MR Dental Cloud", "notes_file": "docs/discovery/sources/fichas-competidores.md#11-mr-dental-cloud" },
-      { "name": "SMILE", "notes_file": "docs/discovery/sources/fichas-competidores.md#12-smile" },
-      { "name": "Dentiqa", "notes_file": "docs/discovery/sources/fichas-competidores.md#13-dentiqa" },
-      { "name": "OdontoPlus", "notes_file": "docs/discovery/sources/fichas-competidores.md#14-odontoplus" },
-      { "name": "Odontosist", "notes_file": "docs/discovery/sources/fichas-competidores.md#15-odontosist" },
-      { "name": "Clinic Cloud", "notes_file": "docs/discovery/sources/fichas-competidores.md#16-clinic-cloud" },
-      { "name": "Dentally", "notes_file": "docs/discovery/sources/fichas-competidores.md#17-dentally" },
-      { "name": "Open Dental", "notes_file": "docs/discovery/sources/fichas-competidores.md#18-open-dental" },
-      { "name": "Curve Dental", "notes_file": "docs/discovery/sources/fichas-competidores.md#19-curve-dental" }
+      {
+        "name": "Bilog",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#1-bilog"
+      },
+      {
+        "name": "Dentalink",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#2-dentalink-sitio-argentina"
+      },
+      {
+        "name": "Oclusar",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#3-oclusar"
+      },
+      {
+        "name": "OdontoGRAMA",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#4-odontograma"
+      },
+      {
+        "name": "Odonto.ar",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#5-odontoar"
+      },
+      {
+        "name": "Dentia",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#6-dentia"
+      },
+      {
+        "name": "Órbita",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#7-órbita-hiorbita"
+      },
+      {
+        "name": "OdontoClinIA",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#8-odontoclinia-clinia"
+      },
+      {
+        "name": "AgendaPro",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#9-agendapro"
+      },
+      {
+        "name": "Dentidesk",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#10-dentidesk"
+      },
+      {
+        "name": "MR Dental Cloud",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#11-mr-dental-cloud"
+      },
+      {
+        "name": "SMILE",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#12-smile"
+      },
+      {
+        "name": "Dentiqa",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#13-dentiqa"
+      },
+      {
+        "name": "OdontoPlus",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#14-odontoplus"
+      },
+      {
+        "name": "Odontosist",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#15-odontosist"
+      },
+      {
+        "name": "Clinic Cloud",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#16-clinic-cloud"
+      },
+      {
+        "name": "Dentally",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#17-dentally"
+      },
+      {
+        "name": "Open Dental",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#18-open-dental"
+      },
+      {
+        "name": "Curve Dental",
+        "notes_file": "docs/discovery/sources/fichas-competidores.md#19-curve-dental"
+      }
     ],
     "problema": "Consultorios odontológicos argentinos de 1 a 5 profesionales con 2+ sillones gestionan turnos a mano (teléfono/WhatsApp), lo que genera dobles turnos por profesional o por sillón y hace perder tiempo a la secretaria.",
     "usuarios": [
@@ -149,5 +215,87 @@
   "roadmap": {
     "created_by": "roadmap-generator",
     "changes_file": "CHANGES.md"
+  },
+  "skills": {
+    "created_by": "find-skill",
+    "recommended": [
+      {
+        "name": "java-springboot",
+        "source": "github/awesome-copilot@java-springboot",
+        "why": "Buenas practicas generales de Spring Boot 3 / Java 17 (capas, DI, validacion, config); 22.2K installs."
+      },
+      {
+        "name": "springboot-patterns",
+        "source": "affaan-m/ecc@springboot-patterns",
+        "why": "Patrones de arquitectura REST/servicios/JPA en Spring Boot para modelar la agenda y los servicios de dominio; 15.2K installs."
+      },
+      {
+        "name": "springboot-security",
+        "source": "affaan-m/ecc@springboot-security",
+        "why": "Spring Security (RBAC por rol secretaria/odontologo/admin, hardening); 13.9K installs."
+      },
+      {
+        "name": "springboot-tdd",
+        "source": "affaan-m/ecc@springboot-tdd",
+        "why": "TDD con JUnit 5, Mockito y MockMvc en Spring Boot, alineado con el stack de tests del proyecto; 13.1K installs."
+      },
+      {
+        "name": "java-junit",
+        "source": "github/awesome-copilot@java-junit",
+        "why": "Buenas practicas JUnit 5/AssertJ y tests parametrizados para las reglas R1-R8; 12K installs."
+      },
+      {
+        "name": "api-design-principles",
+        "source": "wshobson/agents@api-design-principles",
+        "why": "Diseno de API REST (recursos, codigos de estado, errores tipo Problem Details); 31.9K installs."
+      },
+      {
+        "name": "unit-test-boundary-conditions",
+        "source": "giuseppe-trisciuoglio/developer-kit@unit-test-boundary-conditions",
+        "why": "Casos borde de tests unitarios, util para solapamientos, margen de 5 min y limites de horario; 4.3K installs."
+      },
+      {
+        "name": "java-jpa-hibernate",
+        "source": "pluginagentmarketplace/custom-plugin-java@java-jpa-hibernate",
+        "why": "Mapeo JPA/Hibernate y consultas de solapamiento por profesional/sillon; 624 installs (bajo, revisar)."
+      }
+    ],
+    "installed": [
+      {
+        "name": "java-springboot",
+        "source": "github/awesome-copilot",
+        "scope": "global",
+        "why": "Convenciones Spring Boot 3 (capas, validación, ProblemDetail, JPA) para todos los changes"
+      },
+      {
+        "name": "java-junit",
+        "source": "github/awesome-copilot",
+        "scope": "global",
+        "why": "JUnit 5 + AssertJ + Clock fijo; un test por escenario del spec"
+      },
+      {
+        "name": "springboot-security",
+        "source": "affaan-m/ecc",
+        "scope": "global",
+        "why": "RBAC y CSRF/sesión vs JWT para C-05 (IN-01)"
+      },
+      {
+        "name": "api-design-principles",
+        "source": "wshobson/agents",
+        "scope": "global",
+        "why": "Códigos HTTP y errores consistentes en la API REST"
+      }
+    ],
+    "not_installed_reasons": {
+      "springboot-patterns": "se superpone con java-springboot; arquitectura ya fijada en la KB",
+      "springboot-tdd": "se superpone con java-junit y la skill tdd existente",
+      "unit-test-boundary-conditions": "nicho y menos instalaciones",
+      "java-jpa-hibernate": "pocas instalaciones (624), sin revisar; queries centralizadas en C-01"
+    }
+  },
+  "registry": {
+    "created_by": "skill-registry",
+    "file": ".atl/skill-registry.md",
+    "skills_count": 17
   }
 }
