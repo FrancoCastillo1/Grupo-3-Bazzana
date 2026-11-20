@@ -1,0 +1,23 @@
+# Configuración local de cada integrante (permisos del agente, IDE)
+.claude/settings.local.json
+.idea/
+.vscode/
+*.iml
+
+# Build de Maven / Java
+target/
+*.class
+*.log
+
+# Secretos y entorno: nunca se versionan
+.env
+.env.*
+!.env.example
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentos de Office temporales (lock files de Word)
+~$*
