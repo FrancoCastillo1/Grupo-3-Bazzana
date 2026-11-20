@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "registry",
+  "step": "done",
   "owner": "active-orchestrator",
   "visual_design": {
     "created_by": "design-system",
@@ -297,5 +297,32 @@
     "created_by": "skill-registry",
     "file": ".atl/skill-registry.md",
     "skills_count": 17
+  },
+  "agents": {
+    "created_by": "agent-instruction",
+    "files": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "reglas_applied": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "J1",
+      "J2",
+      "J3",
+      "J4",
+      "J5",
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "G1",
+      "G2",
+      "G3",
+      "G4"
+    ]
   }
 }
