@@ -1,0 +1,149 @@
+{
+  "version": 5,
+  "step": "visual-design",
+  "owner": "active-orchestrator",
+  "visual_design": {
+    "created_by": "design-system",
+    "mode": "deferred",
+    "status": "deferred",
+    "path": "design-system/README.md"
+  },
+  "kb": {
+    "created_by": "kb-creator",
+    "source": "ingest",
+    "discovery": {
+      "problem": "Consultorios odontológicos argentinos de 1 a 5 profesionales con 2+ sillones gestionan turnos a mano y sufren dobles turnos por profesional o por sillón.",
+      "system_type": "web_app",
+      "domain": "salud / odontología: gestión de turnos y agenda",
+      "scale": "team",
+      "stack": ["Java 17", "Spring Boot 3", "Maven Wrapper", "Spring Data JPA", "H2 (en memoria)", "Thymeleaf", "Spring Security", "JUnit 5"],
+      "needs_infra": false
+    },
+    "files": [
+      "knowledge-base/README.md",
+      "knowledge-base/01_vision_y_objetivos.md",
+      "knowledge-base/02_descripcion_general.md",
+      "knowledge-base/03_actores_y_roles.md",
+      "knowledge-base/04_modelo_de_datos.md",
+      "knowledge-base/05_reglas_de_negocio.md",
+      "knowledge-base/06_funcionalidades.md",
+      "knowledge-base/07_flujos_principales.md",
+      "knowledge-base/08_arquitectura_propuesta.md",
+      "knowledge-base/09_decisiones_y_supuestos.md",
+      "knowledge-base/10_preguntas_abiertas.md"
+    ]
+  },
+  "discovery": {
+    "created_by": "discovery-research",
+    "file": "docs/discovery/discovery.md",
+    "sources_fetched_at": "2026-11-20",
+    "sources": [
+      "https://bilog.com.ar/",
+      "https://www.softwaredentalink.com/ar",
+      "https://www.oclusar.com.ar/",
+      "https://odontograma.com.ar/",
+      "https://odonto.ar/",
+      "https://dentia.tech/",
+      "https://hiorbita.com/",
+      "https://www.clinia.com.ar/odontologia",
+      "https://agendapro.com/ar/dental/software-odontologico",
+      "https://www.dentidesk.com/",
+      "https://www.mrdentalcloud.com/",
+      "https://smiledental.app/",
+      "https://dentiqa.app/",
+      "https://miodontoplus.com/",
+      "https://odontosist.com/",
+      "https://clinic-cloud.com/",
+      "https://dentally.com/",
+      "https://www.opendental.com/",
+      "https://www.curvedental.com/"
+    ],
+    "competitors": [
+      { "name": "Bilog", "notes_file": "docs/discovery/sources/fichas-competidores.md#1-bilog" },
+      { "name": "Dentalink", "notes_file": "docs/discovery/sources/fichas-competidores.md#2-dentalink-sitio-argentina" },
+      { "name": "Oclusar", "notes_file": "docs/discovery/sources/fichas-competidores.md#3-oclusar" },
+      { "name": "OdontoGRAMA", "notes_file": "docs/discovery/sources/fichas-competidores.md#4-odontograma" },
+      { "name": "Odonto.ar", "notes_file": "docs/discovery/sources/fichas-competidores.md#5-odontoar" },
+      { "name": "Dentia", "notes_file": "docs/discovery/sources/fichas-competidores.md#6-dentia" },
+      { "name": "Órbita", "notes_file": "docs/discovery/sources/fichas-competidores.md#7-órbita-hiorbita" },
+      { "name": "OdontoClinIA", "notes_file": "docs/discovery/sources/fichas-competidores.md#8-odontoclinia-clinia" },
+      { "name": "AgendaPro", "notes_file": "docs/discovery/sources/fichas-competidores.md#9-agendapro" },
+      { "name": "Dentidesk", "notes_file": "docs/discovery/sources/fichas-competidores.md#10-dentidesk" },
+      { "name": "MR Dental Cloud", "notes_file": "docs/discovery/sources/fichas-competidores.md#11-mr-dental-cloud" },
+      { "name": "SMILE", "notes_file": "docs/discovery/sources/fichas-competidores.md#12-smile" },
+      { "name": "Dentiqa", "notes_file": "docs/discovery/sources/fichas-competidores.md#13-dentiqa" },
+      { "name": "OdontoPlus", "notes_file": "docs/discovery/sources/fichas-competidores.md#14-odontoplus" },
+      { "name": "Odontosist", "notes_file": "docs/discovery/sources/fichas-competidores.md#15-odontosist" },
+      { "name": "Clinic Cloud", "notes_file": "docs/discovery/sources/fichas-competidores.md#16-clinic-cloud" },
+      { "name": "Dentally", "notes_file": "docs/discovery/sources/fichas-competidores.md#17-dentally" },
+      { "name": "Open Dental", "notes_file": "docs/discovery/sources/fichas-competidores.md#18-open-dental" },
+      { "name": "Curve Dental", "notes_file": "docs/discovery/sources/fichas-competidores.md#19-curve-dental" }
+    ],
+    "problema": "Consultorios odontológicos argentinos de 1 a 5 profesionales con 2+ sillones gestionan turnos a mano (teléfono/WhatsApp), lo que genera dobles turnos por profesional o por sillón y hace perder tiempo a la secretaria.",
+    "usuarios": [
+      "Secretaria/recepción: da y cancela turnos",
+      "Odontólogo: consulta su agenda del día",
+      "Administrador/dueño: configura profesionales, sillones, prestaciones y horario de atención"
+    ],
+    "casos_de_uso": [
+      "Como secretaria, quiero dar un turno y que el sistema rechace choques de profesional o de sillón, para no generar dobles reservas",
+      "Como secretaria, quiero cancelar un turno para liberar el horario",
+      "Como odontólogo, quiero ver mi agenda del día para organizarme",
+      "Como administrador, quiero cargar prestaciones con su duración, profesionales y sillones"
+    ],
+    "funcionalidades_necesarias": [
+      "Crear turno con duración según prestación sin choques por profesional ni por sillón",
+      "Cancelar turno y liberar el horario",
+      "Agenda del día por odontólogo",
+      "Link de WhatsApp click-to-chat (wa.me) con el mensaje del turno"
+    ],
+    "funcionalidades_opcionales": [
+      "Próxima etapa: recordatorios y confirmación automáticos por WhatsApp",
+      "Próxima etapa: ficha clínica y odontograma",
+      "Próxima etapa: cobros, seña con Mercado Pago y factura ARCA",
+      "Posterior: reprogramar turno",
+      "Posterior: bloqueos y horario laboral por profesional",
+      "Posterior: asistencia y ausentes",
+      "Posterior: reserva del paciente por link",
+      "Posterior: lista de espera",
+      "Posterior: obras sociales y prepagas"
+    ],
+    "reglas_de_negocio": [
+      "R1: fin del turno = inicio + duración fija de la prestación",
+      "R2: margen mínimo de 5 minutos entre turnos del mismo profesional o del mismo sillón",
+      "R3: todo turno ocupa un sillón; un sillón nunca tiene dos turnos superpuestos, ni con sobreturno",
+      "R4: un sobreturno marcado explícitamente permite choque solo por profesional",
+      "R5: un paciente no puede tener dos turnos superpuestos",
+      "R6: no se crean turnos en el pasado ni fuera del horario de atención del consultorio",
+      "R7: cancelar requiere al menos 6 horas de anticipación; un turno cancelado no cuenta para choques",
+      "R8: zona horaria America/Argentina/Buenos_Aires"
+    ],
+    "integraciones": [
+      "MVP: WhatsApp click-to-chat (wa.me), sin API",
+      "Posterior: WhatsApp Business API, Mercado Pago, ARCA (como interfaces)"
+    ],
+    "restricciones": [
+      "Entrega final 2026-11-25",
+      "Equipo de 6 personas (consigna dice hasta 3: confirmar)",
+      "Solo datos ficticios de pacientes",
+      "Ley 25.326 y Ley 26.529",
+      "Alcanza con API o módulo de dominio, sin UI obligatoria",
+      "Sin secretos en el repositorio"
+    ],
+    "riesgos": [
+      "No llegar al 25/11 con el ciclo OPSX completo",
+      "Supuesto no validado: el doble turno es el dolor principal",
+      "Supuesto no validado: funcionalidades de competidores son reales y no marketing",
+      "Evidencia de una sola página en algunos competidores"
+    ],
+    "preguntas_abiertas": [
+      "¿Horario de atención único o por día de la semana?",
+      "¿El margen de 5 minutos aplica entre un turno y su sobreturno?",
+      "¿Quién puede marcar un sobreturno?",
+      "¿Los feriados bloquean la agenda?",
+      "¿Turnos en múltiplos de 5 minutos o en cualquier minuto?",
+      "¿El equipo de 6 personas es compatible con la consigna?",
+      "No evidenciados: precios (Bilog, Dentalink, Órbita, ClinIA, Curve, Dentidesk), prevención de solapamientos en la mayoría, normativa declarada (Bilog, Órbita, Dentiqa), duración variable (Bilog, Oclusar, Dentalink), Doctoralia AR y Reservo sin evidencia legible"
+    ]
+  }
+}
