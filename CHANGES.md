@@ -291,7 +291,7 @@ Objetivo: que los 6 changes de la ola 1 se puedan desarrollar y mergear en cualq
   - `knowledge-base/06_funcionalidades.md` §Épica 5
 
 ### [C-06] `link-whatsapp-turno`
-- **Estado**: `[ ]` pendiente
+- **Estado**: `[x]` completado y archivado el 2026-11-22 (`openspec/changes/archive/2026-11-22-link-whatsapp-turno`, spec `aviso-whatsapp`)
 - **Owner / rama**: Adriano / `feat/link-whatsapp-turno`
 - **Capability**: `aviso-whatsapp`
 - **Scope**:
