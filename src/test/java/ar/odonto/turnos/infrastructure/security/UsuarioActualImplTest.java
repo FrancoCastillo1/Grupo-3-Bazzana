@@ -7,7 +7,9 @@ import ar.odonto.turnos.domain.model.Solicitante;
 import ar.odonto.turnos.domain.model.Usuario;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
 
@@ -83,6 +85,35 @@ class UsuarioActualImplTest {
             assertThat(ex.codigo()).isEqualTo(CodigoError.ACCESO_DENEGADO);
         }
         limpiar();
+    }
+
+    @Test
+    void autoridadDesconocidaLanzaAccesoDenegado() {
+        autenticarConAutoridades("intruso", "ROLE_INVENTADO");
+        try {
+            sut.solicitante();
+            throw new AssertionError("debería haber lanzado ACCESO_DENEGADO");
+        } catch (ReglaDeNegocioException ex) {
+            assertThat(ex.codigo()).isEqualTo(CodigoError.ACCESO_DENEGADO);
+        }
+        limpiar();
+    }
+
+    @Test
+    void autoridadConRolConocidoDevuelveSolicitanteConEseRol() {
+        autenticarConAutoridades("secretaria", "ROLE_SECRETARIA");
+        Solicitante solicitante = sut.solicitante();
+        assertThat(solicitante.rol()).isEqualTo(Rol.SECRETARIA);
+        limpiar();
+    }
+
+    private void autenticarConAutoridades(String username, String... autoridades) {
+        var userDetails = User.withUsername(username).password("x")
+                .authorities(java.util.Arrays.stream(autoridades)
+                        .map(SimpleGrantedAuthority::new).toList())
+                .build();
+        SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()));
     }
 
     private void autenticar(UsuarioPrincipal principal) {

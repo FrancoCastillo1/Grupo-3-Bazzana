@@ -77,6 +77,37 @@ class AuthControllerTest {
     }
 
     @Test
+    void loginCorrectoRenuevaIdDeSesion() throws Exception {
+        var sesionPrevia = new MockHttpSession();
+        String idPrevio = sesionPrevia.getId();
+
+        MvcResult resultado = mvc.perform(post("/api/auth/login")
+                .session(sesionPrevia)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"username\":\"secretaria\",\"password\":\"secre123\"}"))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        var sesion = (MockHttpSession) resultado.getRequest().getSession(false);
+        assertThat(sesion).isNotNull();
+        assertThat(sesion.getId()).isNotEqualTo(idPrevio);
+    }
+
+    @Test
+    void loginFallidoNoRenuevaIdDeSesion() throws Exception {
+        var sesionPrevia = new MockHttpSession();
+        String idPrevio = sesionPrevia.getId();
+
+        mvc.perform(post("/api/auth/login")
+                .session(sesionPrevia)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"username\":\"secretaria\",\"password\":\"mal\"}"))
+                .andExpect(status().isUnauthorized());
+
+        assertThat(sesionPrevia.getId()).isEqualTo(idPrevio);
+    }
+
+    @Test
     void loginEsPublicoSinSesionPrevia() throws Exception {
         // Llega al controlador: no lo frena la cadena como 403 (es permitAll).
         mvc.perform(post("/api/auth/login")

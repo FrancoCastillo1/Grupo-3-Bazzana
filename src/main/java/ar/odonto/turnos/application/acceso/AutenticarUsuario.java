@@ -38,6 +38,10 @@ public class AutenticarUsuario {
             throw new ReglaDeNegocioException(CodigoError.NO_AUTENTICADO,
                     "Usuario o contraseña inválidos");
         }
+        if (!usuario.isActivo()) {
+            throw new ReglaDeNegocioException(CodigoError.ACCESO_DENEGADO,
+                    "El usuario está dado de baja");
+        }
         if (usuario.getRol() == Rol.ODONTOLOGO && usuario.getProfesional() == null) {
             throw new ReglaDeNegocioException(CodigoError.NO_AUTENTICADO,
                     "El odontólogo no está vinculado a un profesional (RN-AU-04)");

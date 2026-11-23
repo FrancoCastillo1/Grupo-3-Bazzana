@@ -66,6 +66,7 @@ public class UsuarioActualImpl implements UsuarioActual {
                 // sigue buscando
             }
         }
-        return Rol.ADMIN;
+        throw new ReglaDeNegocioException(CodigoError.ACCESO_DENEGADO,
+                "Rol no reconocido en las autoridades del usuario");
     }
 }

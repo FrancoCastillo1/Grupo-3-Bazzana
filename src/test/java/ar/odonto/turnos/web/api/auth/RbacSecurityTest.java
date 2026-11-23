@@ -67,4 +67,21 @@ class RbacSecurityTest {
                 .andExpect(status().isForbidden())
                 .andExpect(jsonPath("$.codigo").value("ACCESO_DENEGADO"));
     }
+
+    @Test
+    @WithMockUser(username = "ana", roles = "ODONTOLOGO")
+    void odontologoNoPuedeObtenerLinkDeWhatsApp() throws Exception {
+        mvc.perform(get("/api/turnos/9999/whatsapp-link"))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.codigo").value("ACCESO_DENEGADO"));
+    }
+
+    @Test
+    @WithMockUser(username = "secretaria", roles = "SECRETARIA")
+    void secretariaPuedeObtenerLinkDeWhatsApp() throws Exception {
+        // Turno inexistente => 404 RECURSO_INEXISTENTE: pasó la seguridad (no 403/401).
+        mvc.perform(get("/api/turnos/9999/whatsapp-link"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.codigo").value("RECURSO_INEXISTENTE"));
+    }
 }

@@ -80,6 +80,21 @@ class AutenticarUsuarioTest {
     }
 
     @Test
+    void usuarioDadoDeBajaLanzaAccesoDenegado() {
+        var usuario = new Usuario("dadoBaja", "hash", Rol.SECRETARIA, null);
+        usuario.desactivar();
+        when(usuarios.findByUsername("dadoBaja")).thenReturn(Optional.of(usuario));
+        when(encoder.matches("secre123", "hash")).thenReturn(true);
+
+        try {
+            sut.ejecutar("dadoBaja", "secre123");
+            throw new AssertionError("debería haber lanzado ACCESO_DENEGADO");
+        } catch (ReglaDeNegocioException ex) {
+            assertThat(ex.codigo()).isEqualTo(CodigoError.ACCESO_DENEGADO);
+        }
+    }
+
+    @Test
     void odontologoSinProfesionalLanzaNoAutenticado() {
         var usuario = mock(Usuario.class);
         when(usuario.getUsername()).thenReturn("ana");

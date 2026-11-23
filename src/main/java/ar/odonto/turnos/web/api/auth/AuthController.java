@@ -59,6 +59,10 @@ public class AuthController {
         var autoridades = List.of(
                 new SimpleGrantedAuthority("ROLE_" + identidad.rol().name()));
         Authentication auth = new UsernamePasswordAuthenticationToken(new UsuarioPrincipal(usuario), null, autoridades);
+        // Renovar el ID de sesión tras autenticación exitosa (mitiga fijación de sesión).
+        // getSession() garantiza que exista una sesión antes de cambiarle el ID.
+        request.getSession();
+        request.changeSessionId();
         SecurityContextHolder.getContext().setAuthentication(auth);
         securityContextRepository.saveContext(SecurityContextHolder.getContext(), request, response);
         return ResponseEntity.ok(new LoginResponse(identidad.usuario(), identidad.rol().name(), identidad.profesionalId()));

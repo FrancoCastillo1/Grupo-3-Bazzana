@@ -73,6 +73,10 @@ public class SeguridadConfig {
                                 .hasAnyRole(Rol.ADMIN.name(), Rol.SECRETARIA.name(), Rol.ODONTOLOGO.name())
                         .requestMatchers(HttpMethod.PUT, "/api/consultorio/horario")
                                 .hasRole(Rol.ADMIN.name())
+                        // Link de WhatsApp: solo ADMIN y SECRETARIA (matriz RBAC; RN-WA).
+                        // Regla específica ANTES de la general GET /api/turnos/** (first match wins).
+                        .requestMatchers(HttpMethod.GET, "/api/turnos/*/whatsapp-link")
+                                .hasAnyRole(Rol.ADMIN.name(), Rol.SECRETARIA.name())
                         // Turnos: lectura (todos autenticados); crear/cancelar (ADMIN / SECRETARIA).
                         .requestMatchers(HttpMethod.GET, "/api/turnos/**")
                                 .hasAnyRole(Rol.ADMIN.name(), Rol.SECRETARIA.name(), Rol.ODONTOLOGO.name())
